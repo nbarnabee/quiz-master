@@ -1,16 +1,10 @@
 # quiz-master
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Having spent some time going deeper into Vue.js and exploring Pinia, I decided to put what I'd learned into practice and rewrite a project I'd made earlier using vanilla JS: [Trivia Trainer](https://nbarnabee.github.io/api_projects/trivia_trainer/)
 
 ## Project Setup
+
+Fork repo.
 
 ```sh
 npm install
