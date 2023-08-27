@@ -8,11 +8,13 @@ const { currentQuestion } = storeToRefs(questionStore);
 </script>
 
 <template>
-  <p>{{ currentQuestion ? decode(currentQuestion.question) : "" }}</p>
+  <p v-if="currentQuestion">
+    Answer: {{ currentQuestion ? decode(currentQuestion.correct_answer) : "" }}
+  </p>
 </template>
 
-<style>
+<style scoped>
 p {
-  max-width: 750px;
+  height: 50px;
 }
 </style>

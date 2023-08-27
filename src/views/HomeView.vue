@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useQuestionStore } from "../stores/question";
-import QuestionBox from "../components/QuestionBox.vue";
+import QuestionContainer from "../components/QuestionContainer.vue";
 
 const questionStore = useQuestionStore();
 
@@ -13,7 +13,7 @@ onMounted(() => {
 <template>
   <main>
     <h1>Welcome to Quiz Master!</h1>
-    <QuestionBox />
+    <QuestionContainer />
   </main>
 </template>
 

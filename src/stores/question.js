@@ -4,7 +4,9 @@ import TriviaService from "../services/TriviaService";
 export const useQuestionStore = defineStore("questionStore", {
   state: () => ({
     token: "",
-    questions: []
+    questions: [],
+    currentQuestion: "",
+    questionNumber: 0
   }),
   actions: {
     async getNewToken() {
@@ -17,13 +19,25 @@ export const useQuestionStore = defineStore("questionStore", {
     },
     async getQuestions() {
       try {
-        this.questions.length = 0;
+        this.resetQuestions();
         const response = await TriviaService.getQuestions(this.token);
         this.questions = response.data.results;
-        console.log(this.questions);
+        this.updateCurrentQuestion();
       } catch (error) {
         console.log(error);
       }
+    },
+    resetQuestions() {
+      this.questions.length = 0;
+      this.currentQuestion = "";
+      this.questionNumber = 0;
+    },
+    advanceQuestionNum() {
+      this.questionNumber += 1;
+      this.updateCurrentQuestion();
+    },
+    updateCurrentQuestion() {
+      this.currentQuestion = this.questions[this.questionNumber];
     }
   }
 });

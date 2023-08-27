@@ -15,7 +15,6 @@ export default {
   },
   getQuestions(token = "") {
     if (token) {
-      console.log(token);
       return apiClient.get(`api.php?amount=10&token=${token}`);
     } else return apiClient.get(`api.php?amount=10`);
   }
