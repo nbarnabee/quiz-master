@@ -1,12 +1,12 @@
 <script setup>
 import { onMounted } from "vue";
-import { useTokenStore } from "../stores/token";
+import { useQuestionStore } from "../stores/question";
 import QuestionBox from "../components/QuestionBox.vue";
 
-const tokenStore = useTokenStore();
+const questionStore = useQuestionStore();
 
 onMounted(() => {
-  tokenStore.getNewToken();
+  questionStore.getNewToken();
 });
 </script>
 
