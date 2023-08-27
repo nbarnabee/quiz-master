@@ -1,10 +1,8 @@
 <script setup>
-import { decode } from "../helpers/helpers";
+import { decode } from "../helpers/decode";
 import { useQuestionStore } from "../stores/question";
-import { storeToRefs } from "pinia";
 
 const questionStore = useQuestionStore();
-const { currentQuestion } = storeToRefs(questionStore);
 </script>
 
 <template>
