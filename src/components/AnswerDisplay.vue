@@ -1,27 +1,24 @@
 <script setup>
-import { onMounted, watchEffect } from "vue";
 import { decode } from "../helpers/decode";
 import { useQuestionStore } from "../stores/question";
+import { storeToRefs } from "pinia";
 
 const questionStore = useQuestionStore();
-
-onMounted(() => {
-  watchEffect(() => {
-    const answerArr = questionStore.currentQuestion.incorrect_answers;
-    answerArr.push(questionStore.currentQuestion.correct_answer);
-    console.log(answerArr);
-  });
-});
+const { currentAnswers } = storeToRefs(questionStore);
 </script>
 
 <template>
-  <p>
-    {{ questionStore.currentQuestion ? decode(questionStore.currentQuestion.correct_answer) : "" }}
-  </p>
+  <ul class="answers">
+    <li v-for="answer in currentAnswers" :key="answer">
+      {{ decode(answer) }}
+    </li>
+  </ul>
 </template>
 
 <style scoped>
-p {
-  height: 100px;
+.answers {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
 }
 </style>

@@ -6,6 +6,7 @@ export const useQuestionStore = defineStore("questionStore", {
     token: "",
     questions: [],
     currentQuestion: "",
+    currentAnswers: [],
     questionNumber: 0,
     questionAnswered: false,
     userChoice: ""
@@ -41,7 +42,21 @@ export const useQuestionStore = defineStore("questionStore", {
     updateCurrentQuestion() {
       this.currentQuestion = this.questions[this.questionNumber];
       this.questionAnswered = false;
-      console.log(this.currentQuestion);
+      this.updateCurrentAnswers();
+    },
+    updateCurrentAnswers() {
+      this.currentAnswers.length = 0;
+      this.currentQuestion.incorrect_answers.forEach((answer) => this.currentAnswers.push(answer));
+      this.currentAnswers.push(this.currentQuestion.correct_answer);
+      this.sortCurrentAnswers();
+    },
+    sortCurrentAnswers() {
+      if (Number(this.currentAnswers[0]) && Number(this.currentAnswers[1]))
+        this.currentAnswers.sort((a, b) => a - b);
+      else {
+        this.currentAnswers.sort();
+        if (this.currentAnswers.length === 2) this.currentAnswers.reverse();
+      }
     }
   }
 });
