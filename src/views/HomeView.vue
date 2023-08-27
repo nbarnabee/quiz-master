@@ -1,19 +1,12 @@
 <script setup>
 import { onMounted } from "vue";
 import { useTokenStore } from "../stores/token";
-import TriviaService from "../services/TriviaService";
 import QuestionBox from "../components/QuestionBox.vue";
-import { storeToRefs } from "pinia";
-const tokenStore = useTokenStore();
-const { token } = storeToRefs(tokenStore);
 
-onMounted(async () => {
-  try {
-    const response = await TriviaService.getToken();
-    token.value = response.data.token;
-  } catch (error) {
-    console.log(error);
-  }
+const tokenStore = useTokenStore();
+
+onMounted(() => {
+  tokenStore.getNewToken();
 });
 </script>
 
