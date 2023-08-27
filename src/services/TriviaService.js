@@ -12,5 +12,11 @@ const apiClient = axios.create({
 export default {
   getToken() {
     return apiClient.get(`/api_token.php?command=request`);
+  },
+  getQuestions(token = "") {
+    if (token) {
+      console.log(token);
+      return apiClient.get(`api.php?amount=10&token=${token}`);
+    } else return apiClient.get(`api.php?amount=10`);
   }
 };
