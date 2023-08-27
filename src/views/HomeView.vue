@@ -1,14 +1,19 @@
 <script setup>
-import { ref, onMounted, watchEffect } from "vue";
+import { onMounted, watchEffect } from "vue";
 import TriviaService from "../services/TriviaService";
+import { useTokenStore } from "../stores/token";
 import QuestionBox from "../components/QuestionBox.vue";
-const token = ref("");
+
+const tokenStore = useTokenStore();
+// const token = ref("");
 
 onMounted(() => {
   watchEffect(async () => {
     try {
       const response = await TriviaService.getToken();
-      token.value = response.data.token;
+      // token.value = response.data.token;
+      tokenStore.updateToken(response.data.token);
+      console.log(tokenStore.token);
     } catch (error) {
       console.log(error);
     }
@@ -19,7 +24,7 @@ onMounted(() => {
 <template>
   <main>
     <h1>Welcome to Quiz Master!</h1>
-    <QuestionBox :token="token" />
+    <QuestionBox :token="tokenStore.token" />
   </main>
 </template>
 
