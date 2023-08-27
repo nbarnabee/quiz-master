@@ -6,8 +6,9 @@ const questionStore = useQuestionStore();
 </script>
 
 <template>
-  <p v-if="currentQuestion && questionStore.questionAnswered">
-    Answer: {{ currentQuestion ? decode(currentQuestion.correct_answer) : "" }}
+  <p v-if="questionStore.currentQuestion && questionStore.questionAnswered">
+    Answer:
+    {{ questionStore.currentQuestion ? decode(questionStore.currentQuestion.correct_answer) : "" }}
   </p>
 </template>
 
