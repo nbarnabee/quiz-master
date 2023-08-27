@@ -33,8 +33,5 @@ function answerQuestion() {
 span {
   display: flex;
   justify-content: center;
-  width: 500px;
-  position: absolute;
-  bottom: 0;
 }
 </style>

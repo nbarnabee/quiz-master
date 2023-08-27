@@ -6,7 +6,7 @@ const questionStore = useQuestionStore();
 </script>
 
 <template>
-  <p v-if="questionStore.currentQuestion && questionStore.questionAnswered">
+  <p :class="[questionStore.currentQuestion && questionStore.questionAnswered ? '' : 'hidden']">
     Answer:
     {{ questionStore.currentQuestion ? decode(questionStore.currentQuestion.correct_answer) : "" }}
   </p>
@@ -15,5 +15,9 @@ const questionStore = useQuestionStore();
 <style scoped>
 p {
   height: 50px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 </style>

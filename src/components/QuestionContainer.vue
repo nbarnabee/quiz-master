@@ -29,6 +29,5 @@ div {
   align-items: center;
   gap: 4rem;
   height: 300px;
-  position: static;
 }
 </style>
