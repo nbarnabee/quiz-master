@@ -8,7 +8,7 @@ const { currentQuestion } = storeToRefs(questionStore);
 </script>
 
 <template>
-  <p v-if="currentQuestion">
+  <p v-if="currentQuestion && questionStore.questionAnswered">
     Answer: {{ currentQuestion ? decode(currentQuestion.correct_answer) : "" }}
   </p>
 </template>

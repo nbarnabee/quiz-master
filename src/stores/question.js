@@ -6,7 +6,9 @@ export const useQuestionStore = defineStore("questionStore", {
     token: "",
     questions: [],
     currentQuestion: "",
-    questionNumber: 0
+    questionNumber: 0,
+    questionAnswered: false,
+    userChoice: ""
   }),
   actions: {
     async getNewToken() {
@@ -38,6 +40,8 @@ export const useQuestionStore = defineStore("questionStore", {
     },
     updateCurrentQuestion() {
       this.currentQuestion = this.questions[this.questionNumber];
+      this.questionAnswered = false;
+      console.log(this.currentQuestion);
     }
   }
 });

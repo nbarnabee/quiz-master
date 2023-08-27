@@ -3,12 +3,17 @@ import { useQuestionStore } from "../stores/question";
 import { storeToRefs } from "pinia";
 
 const questionStore = useQuestionStore();
-const { questionNumber } = storeToRefs(questionStore);
+const { questionNumber, questionAnswered } = storeToRefs(questionStore);
+
+function answerQuestion() {
+  questionAnswered.value = true;
+}
 </script>
 
 <template>
   <span>
     <button
+      v-if="questionAnswered"
       type="button"
       @click="
         [
@@ -20,6 +25,7 @@ const { questionNumber } = storeToRefs(questionStore);
     >
       Next Question
     </button>
+    <button v-else type="button" @click="answerQuestion()">Submit</button>
   </span>
 </template>
 
