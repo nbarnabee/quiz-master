@@ -1,13 +1,15 @@
 <script setup></script>
 
 <template>
-  <main>Testing</main>
+  <main>
+    <h1>Welcome to Quiz Master!</h1>
+  </main>
 </template>
 
 <style scoped>
 main {
-  margin-inline: 0;
-  text-align: center;
-  outline: 1px solid red;
+  display: grid;
+  place-content: center;
+  width: 100vw;
 }
 </style>
