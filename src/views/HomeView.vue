@@ -1,30 +1,26 @@
 <script setup>
-import { onMounted, watchEffect } from "vue";
-import TriviaService from "../services/TriviaService";
+import { onMounted } from "vue";
 import { useTokenStore } from "../stores/token";
+import TriviaService from "../services/TriviaService";
 import QuestionBox from "../components/QuestionBox.vue";
-
+import { storeToRefs } from "pinia";
 const tokenStore = useTokenStore();
-// const token = ref("");
+const { token } = storeToRefs(tokenStore);
 
-onMounted(() => {
-  watchEffect(async () => {
-    try {
-      const response = await TriviaService.getToken();
-      // token.value = response.data.token;
-      tokenStore.updateToken(response.data.token);
-      console.log(tokenStore.token);
-    } catch (error) {
-      console.log(error);
-    }
-  });
+onMounted(async () => {
+  try {
+    const response = await TriviaService.getToken();
+    token.value = response.data.token;
+  } catch (error) {
+    console.log(error);
+  }
 });
 </script>
 
 <template>
   <main>
     <h1>Welcome to Quiz Master!</h1>
-    <QuestionBox :token="tokenStore.token" />
+    <QuestionBox />
   </main>
 </template>
 
