@@ -2,6 +2,7 @@
 import { onMounted } from "vue";
 import { useQuestionStore } from "../stores/question";
 import QuestionBox from "./QuestionBox.vue";
+import AnswerDisplay from "./AnswerDisplay.vue";
 import AnswerBox from "./AnswerBox.vue";
 import ControlButtonBox from "./ControlButtonBox.vue";
 
@@ -15,6 +16,7 @@ onMounted(() => {
 <template>
   <div>
     <QuestionBox />
+    <AnswerDisplay />
     <AnswerBox />
     <ControlButtonBox />
   </div>
@@ -26,7 +28,7 @@ div {
   flex-direction: column;
   align-items: center;
   gap: 4rem;
-  height: 250px;
+  height: 300px;
   position: static;
 }
 </style>
