@@ -4,7 +4,11 @@ Having spent some time going deeper into Vue.js and exploring Pinia, I decided t
 
 This project uses the [Open Trivia Database](https://opentdb.com/) ([API documentation](https://opentdb.com/api_config.php))
 
-## Project Setup
+Trivia Trainer displayed the full set of questions on screen at once; for Quiz Master I wanted to display the questions one at a time and share information across multiple components (that's the beauty of Vue, after all). What better use case for a state management framework?
+
+In my enthusiasm, I may have shoved too much into a single store, but that's what refactoring is for!
+
+### Project Setup
 
 Fork repo.
 
@@ -12,26 +16,20 @@ Fork repo.
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+#### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+#### Compile and Minify for Production
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+#### Run Unit Tests with [Vitest](https://vitest.dev/) (To be implemented later)
 
 ```sh
 npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
