@@ -7,9 +7,9 @@ export const useQuestionStore = defineStore("questionStore", {
     questions: [],
     currentQuestion: "",
     currentAnswers: [],
+    chosenAnswer: "",
     questionNumber: 0,
-    questionAnswered: false,
-    userChoice: ""
+    questionAnswered: false
   }),
   actions: {
     async getNewToken() {
@@ -35,6 +35,11 @@ export const useQuestionStore = defineStore("questionStore", {
       this.currentQuestion = "";
       this.questionNumber = 0;
     },
+    checkAnswer() {
+      if (this.chosenAnswer === this.currentQuestion.correct_answer) console.log("Correct");
+      else console.log("Incorrect");
+      this.advanceQuestionNum();
+    },
     advanceQuestionNum() {
       this.questionNumber += 1;
       this.updateCurrentQuestion();
@@ -42,6 +47,7 @@ export const useQuestionStore = defineStore("questionStore", {
     updateCurrentQuestion() {
       this.currentQuestion = this.questions[this.questionNumber];
       this.questionAnswered = false;
+      this.chosenAnswer = "";
       this.updateCurrentAnswers();
     },
     updateCurrentAnswers() {

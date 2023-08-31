@@ -7,6 +7,7 @@ const { questionNumber, questionAnswered } = storeToRefs(questionStore);
 
 function answerQuestion() {
   questionAnswered.value = true;
+  questionStore.checkAnswer();
 }
 </script>
 

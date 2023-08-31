@@ -4,15 +4,15 @@ import { useQuestionStore } from "../stores/question";
 import { storeToRefs } from "pinia";
 
 const questionStore = useQuestionStore();
-const { currentAnswers } = storeToRefs(questionStore);
+const { currentAnswers, chosenAnswer } = storeToRefs(questionStore);
 </script>
 
 <template>
-  <ul class="answers">
-    <li v-for="answer in currentAnswers" :key="answer">
-      {{ decode(answer) }}
-    </li>
-  </ul>
+  <fieldset class="answers">
+    <label v-for="(answer, index) in currentAnswers" :for="answer" :key="index">
+      <input type="radio" :id="answer" :value="answer" v-model="chosenAnswer" />{{ decode(answer) }}
+    </label>
+  </fieldset>
 </template>
 
 <style scoped>
