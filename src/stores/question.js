@@ -8,8 +8,11 @@ export const useQuestionStore = defineStore("questionStore", {
     currentQuestion: "",
     currentAnswers: [],
     chosenAnswer: "",
+    correctAnswers: 0,
+    numberOfQuestions: 0,
     questionNumber: 0,
-    questionAnswered: false
+    questionAnswered: false,
+    correctAnswerGiven: false
   }),
   actions: {
     async getNewToken() {
@@ -36,9 +39,12 @@ export const useQuestionStore = defineStore("questionStore", {
       this.questionNumber = 0;
     },
     checkAnswer() {
-      if (this.chosenAnswer === this.currentQuestion.correct_answer) console.log("Correct");
-      else console.log("Incorrect");
-      this.advanceQuestionNum();
+      if (this.chosenAnswer === this.currentQuestion.correct_answer) {
+        this.correctAnswers += 1;
+        this.correctAnswerGiven = true;
+      }
+      this.numberOfQuestions += 1;
+      this.questionAnswered = true;
     },
     advanceQuestionNum() {
       this.questionNumber += 1;
@@ -47,6 +53,7 @@ export const useQuestionStore = defineStore("questionStore", {
     updateCurrentQuestion() {
       this.currentQuestion = this.questions[this.questionNumber];
       this.questionAnswered = false;
+      this.correctAnswerGiven = false;
       this.chosenAnswer = "";
       this.updateCurrentAnswers();
     },
