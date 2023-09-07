@@ -1,9 +1,17 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useQuestionStore } from "../stores/question";
-import QuestionContainer from "../components/QuestionContainer.vue";
+// import { hideMe } from "../helpers/hide";
+import QuizBuilder from "./question/QuizBuilder.vue";
+import QuizDisplay from "./question/QuizDisplay.vue";
 
 const questionStore = useQuestionStore();
+const builderActive = ref(true);
+const currentComponent = computed(() => (builderActive.value ? QuizBuilder : QuizDisplay));
+function componentSwap($event) {
+  builderActive.value = !builderActive.value;
+  $event.target.style.display = "none";
+}
 
 onMounted(() => {
   questionStore.getNewToken();
@@ -12,17 +20,9 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1>Welcome to Quiz Master!</h1>
-    <QuestionContainer />
+    <component :is="currentComponent"></component>
+    <button @click="componentSwap">Begin Quiz</button>
   </main>
 </template>
 
-<style scoped>
-main {
-  display: flex;
-  flex-direction: column;
-  margin-top: 8rem;
-  gap: 4rem;
-  align-items: center;
-}
-</style>
+<style scoped></style>

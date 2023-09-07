@@ -1,10 +1,10 @@
 <script setup>
 import { onMounted } from "vue";
-import { useQuestionStore } from "../stores/question";
-import QuestionBox from "./QuestionBox.vue";
-import ChoiceDisplay from "./ChoiceDisplay.vue";
-import AnswerDisplay from "./AnswerDisplay.vue";
-import ControlButtonBox from "./ControlButtonBox.vue";
+import { useQuestionStore } from "../../stores/question";
+import QuestionBox from "../../components/QuestionBox.vue";
+import ChoiceDisplay from "../../components/ChoiceDisplay.vue";
+import AnswerDisplay from "../../components/AnswerDisplay.vue";
+import ControlButtonBox from "../../components/ControlButtonBox.vue";
 
 const questionStore = useQuestionStore();
 
