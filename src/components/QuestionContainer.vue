@@ -2,8 +2,8 @@
 import { onMounted } from "vue";
 import { useQuestionStore } from "../stores/question";
 import QuestionBox from "./QuestionBox.vue";
+import ChoiceDisplay from "./ChoiceDisplay.vue";
 import AnswerDisplay from "./AnswerDisplay.vue";
-import ResultDisplay from "./ResultDisplay.vue";
 import ControlButtonBox from "./ControlButtonBox.vue";
 
 const questionStore = useQuestionStore();
@@ -16,8 +16,8 @@ onMounted(() => {
 <template>
   <div>
     <QuestionBox />
+    <ChoiceDisplay />
     <AnswerDisplay />
-    <ResultDisplay />
     <ControlButtonBox />
   </div>
 </template>

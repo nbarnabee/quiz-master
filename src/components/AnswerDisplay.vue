@@ -1,24 +1,46 @@
 <script setup>
+import { computed } from "vue";
 import { decode } from "../helpers/decode";
 import { useQuestionStore } from "../stores/question";
-import { storeToRefs } from "pinia";
 
 const questionStore = useQuestionStore();
-const { currentAnswers, chosenAnswer } = storeToRefs(questionStore);
+
+const correctness = computed(() => (questionStore.correctAnswerGiven ? "correct" : "incorrect"));
 </script>
 
 <template>
-  <fieldset class="answers">
-    <label v-for="(answer, index) in currentAnswers" :for="answer" :key="index">
-      <input type="radio" :id="answer" :value="answer" v-model="chosenAnswer" />{{ decode(answer) }}
-    </label>
-  </fieldset>
+  <p :class="[questionStore.currentQuestion && questionStore.questionAnswered ? '' : 'hidden']">
+    That's
+    <span :class="[correctness === 'correct' ? 'blue-text' : 'red-text', 'big-text']">{{
+      correctness
+    }}</span
+    >! The answer is
+    {{ questionStore.currentQuestion ? decode(questionStore.currentQuestion.correct_answer) : "" }}.
+  </p>
+  <p :class="[questionStore.numberOfQuestions > 0 ? '' : 'hidden']">
+    You've answered {{ questionStore.correctAnswers }} out of
+    {{ questionStore.numberOfQuestions }} questions correctly.
+  </p>
 </template>
 
 <style scoped>
-.answers {
-  display: flex;
-  flex-direction: column;
-  height: 200px;
+p {
+  height: 50px;
+}
+
+.big-text {
+  font-weight: bold;
+}
+
+.blue-text {
+  color: blue;
+}
+
+.red-text {
+  color: red;
+}
+
+.hidden {
+  visibility: hidden;
 }
 </style>
