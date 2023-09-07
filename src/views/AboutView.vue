@@ -7,6 +7,11 @@
       I'd need to break it down into components, which would need to share quite a lot of
       information. What better use-case for a state management framework?
     </p>
+    <p>
+      Continuing on with Vue, I delved a little deeper into the world of reusable form components
+      and am in the process of incorporating those.
+    </p>
+    <p>In the future I'll add unit testing and result tracking.</p>
   </div>
 </template>
 
