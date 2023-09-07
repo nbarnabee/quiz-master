@@ -8,11 +8,27 @@ const { currentQuestion } = storeToRefs(questionStore);
 </script>
 
 <template>
-  <p>{{ currentQuestion ? decode(currentQuestion.question) : "" }}</p>
+  <section>
+    <h1>{{ currentQuestion ? decode(currentQuestion.question) : "" }}</h1>
+    <div class="details">
+      <small>{{ currentQuestion.category }}</small
+      ><small>Difficulty: {{ currentQuestion.difficulty }}</small>
+    </div>
+  </section>
 </template>
 
-<style>
-p {
-  max-width: 750px;
+<style scoped>
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+h1 {
+  line-height: 1.3;
+}
+.details {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

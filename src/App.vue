@@ -9,23 +9,27 @@ import { RouterLink, RouterView } from "vue-router";
       <RouterLink to="/about">About</RouterLink>
     </nav>
   </header>
-
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  position: absolute;
-  top: 0;
-  right: 2rem;
-}
-
 nav {
   width: 100%;
   font-size: 1rem;
   text-align: center;
-  margin-top: 2rem;
+  margin-block: 2rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
 }
 
 nav a.router-link-exact-active {
