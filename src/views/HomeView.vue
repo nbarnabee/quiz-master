@@ -1,9 +1,8 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useQuestionStore } from "../stores/question";
-// import { hideMe } from "../helpers/hide";
-import QuizBuilder from "./question/QuizBuilder.vue";
-import QuizDisplay from "./question/QuizDisplay.vue";
+import QuizBuilder from "./subviews/QuizBuilder.vue";
+import QuizDisplay from "./subviews/QuizDisplay.vue";
 
 const questionStore = useQuestionStore();
 
