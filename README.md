@@ -10,8 +10,12 @@ In my enthusiasm, I may have shoved too much into a single store, but that's wha
 
 The project is currently live at https://nbarnabee.github.io/quiz-master/
 
+In progress:
+I'm currently working on a form component that will allow the user to specify subjects/difficulty/# of questions.
+
+See the `form` branch.
+
 To do:
-Add options for difficulty/subjects/length of quiz.
 Add unit tests.
 Break the questions store into smaller bites.
 
