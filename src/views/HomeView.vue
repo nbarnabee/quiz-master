@@ -6,12 +6,12 @@ import QuizBuilder from "./question/QuizBuilder.vue";
 import QuizDisplay from "./question/QuizDisplay.vue";
 
 const questionStore = useQuestionStore();
+
 const builderActive = ref(true);
 const currentComponent = computed(() => (builderActive.value ? QuizBuilder : QuizDisplay));
-function componentSwap($event) {
+const componentSwap = () => {
   builderActive.value = !builderActive.value;
-  $event.target.style.display = "none";
-}
+};
 
 onMounted(() => {
   questionStore.getNewToken();
@@ -20,8 +20,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <component :is="currentComponent"></component>
-    <button @click="componentSwap">Begin Quiz</button>
+    <component :is="currentComponent" @begin-quiz="componentSwap"></component>
   </main>
 </template>
 
