@@ -28,25 +28,25 @@ Integer. Optional. Not including this will result in a random grab-bag of questi
 | 17  | Science & Nature                   | 229             | 61   | 100    | 68   |
 | 18  | Science: Computers                 | 159             | 48   | 74     | 37   |
 | 19  | Mathematics                        | 53              | 14   | 23     | 16   |
+| 20  | Mythology                          | 57              | 18   | 26     | 13   |
+| 21  | Sports                             | 132             | 48   | 64     | 20   |
+| 22  | Geography                          | 275             | 80   | 139    | 56   |
+| 23  | History                            | 310             | 68   | 162    | 80   |
+| 24  | Politics                           | 59              | 18   | 26     | 15   |
+| 25  | Art                                | 29              | 9    | 11     | 9    |
+| 26  | Celebrities                        | 52              | 13   | 31     | 8    |
+| 27  | Animals                            | 75              | 27   | 30     | 18   |
+| 28  | Vehicles                           | 71              | 21   | 32     | 18   |
+| 29  | Entertainment: Comics              | 67              | 15   | 33     | 19   |
+| 30  | Science: Gadgets                   | 24              | 9    | 10     | 5    |
+| 31  | Entertainment: Anime & Manga       | 184             | 59   | 82     | 43   |
+| 32  | Entertainment: Cartoon & Animation | 89              | 32   | 40     | 17   |
 
-19: Mathematics
-20: Mythology
-21: Sports
-22: Geography
-23: History
-24: Politics
-25: Art
-26: Celebrities
-27: Animals
-28: Vehicles
-29: Entertainment: Comics
-30: Science: Gadgets
-31: Entertainment: Japanese Anime & Manga
-32: Entertainment: Cartoon & Animations
-
-I've also included the # of questions for each category, as the response codes indicate that making a request for a number of questions greater than those within a particular category will result in an error. So I'll need to bear that in mind.
+Making a request for a number of questions greater than those within a particular category will result in an error. So I'll need to bear that in mind.
 
 Numbers current as of 10.9.2023.
+
+Todo: setup some sort of backend that can track & adjust these stats.
 
 ### Difficulty
 
